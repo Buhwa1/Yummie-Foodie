@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "758648057421",
+    "project_id": "yummie-foodie",
+    "storage_bucket": "yummie-foodie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758648057421:android:9bce5348a767068d1bf604",
+        "android_client_info": {
+          "package_name": "com.example.yummiefoodie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758648057421-890c8o424ildvg3g1kj0lknj92tdbnc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yummiefoodie",
+            "certificate_hash": "876df0622cecb768b4981064e51216f215063ce0"
+          }
+        },
+        {
+          "client_id": "758648057421-p40h0c6b1hgh2em33cd69jimgkroqpgm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTPw2Tqr4BFdPXjnkg3i8MZjuZV__OziE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758648057421-p40h0c6b1hgh2em33cd69jimgkroqpgm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
