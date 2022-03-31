@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 public class SignIn extends AppCompatActivity {
 
     Button btnsignin;
-    EditText phone,password;
+    EditText phone, password;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://yummie-foodie-default-rtdb.firebaseio.com");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,41 +34,40 @@ public class SignIn extends AppCompatActivity {
         password = findViewById(R.id.password);
 
         //Firebase
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = database.getReference();
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        final DatabaseReference table_user = database.getReference();
 
         btnsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                final String number1 = phone.getText().toString();
+                final String password1 = password.getText().toString();
 //                ProgressDialog progressDialog = new ProgressDialog(SignIn.this);
 //                progressDialog.setMessage("Please Wait");
 //                progressDialog.show();
 
-                table_user.addValueEventListener(new ValueEventListener() {
+                databaseReference.child("users").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.child(phone.getText().toString()).exists()) {
-//                            progressDialog.dismiss();
-
-                            User user = snapshot.child(phone.getText().toString()).getValue(User.class);
-                            if (user.getPassword().equals(password.getText().toString())) {
-                                Toast.makeText(SignIn.this, "Sign in successfully!!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(SignIn.this, "Sign in Failed!!", Toast.LENGTH_SHORT).show();
+                        if (snapshot.hasChild(number1)) {
+////                            progressDialog.dismiss();
+                            final String password2 = snapshot.child(number1).child("Password").getValue(String.class);
+//
+                            if (password2.equals(password1)) {
+                                Toast.makeText(SignIn.this, "Sign in yes!!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SignIn.this,signup.class));
                             }
-                        } else {
-                            Toast.makeText(SignIn.this, "User Doesnt Exist!!", Toast.LENGTH_SHORT).show();
                         }
                     }
-
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
                 });
+
             }
         });
     }
 }
+
