@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "758648057421",
+    "firebase_url": "https://yummie-foodie-default-rtdb.firebaseio.com",
     "project_id": "yummie-foodie",
     "storage_bucket": "yummie-foodie.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:758648057421:android:9bce5348a767068d1bf604",
+        "mobilesdk_app_id": "1:758648057421:android:a5967fd60d5ddc441bf604",
         "android_client_info": {
           "package_name": "com.example.yummiefoodie"
         }
